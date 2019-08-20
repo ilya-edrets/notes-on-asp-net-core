@@ -45,7 +45,7 @@
         {
             using (SqlConnection connection = new SqlConnection(Settings.Current.ConnectionString))
             {
-                string sql = $"Insert Into Users (Id, Login, Password) Values ('{this.Id}', '{this.Login}','{this.Password}')";
+                string sql = $"INSERT INTO Users (Id, Login, Password) VALUES ('{this.Id}', '{this.Login}','{this.Password}')";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     connection.Open();
@@ -55,12 +55,11 @@
             }
         }
 
-        public void Update()
+        public void Delete()
         {
-            string connectionString = string.Empty;
             using (SqlConnection connection = new SqlConnection(Settings.Current.ConnectionString))
             {
-                string sql = $"Update User SET Login='{this.Login}', Password='{this.Password}', Where Id='{this.Id}'";
+                string sql = $"DELETE FROM Users WHERE Id='{this.Id}'";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     connection.Open();
