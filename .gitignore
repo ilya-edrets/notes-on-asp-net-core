@@ -1,4 +1,8 @@
 .vs/
 [Dd]ebug/
 [Rr]elease/
+[Oo]bj/
+
 *.user
+*.jfm
+*.dbmdl
