@@ -12,18 +12,13 @@ namespace IntegrationTests
         public UserTests(UserFixture userFixture)
         {
             this.userFixture = userFixture;
-            var settings = new Settings
-            {
-                ConnectionString = @"Data Source=.\MSSQLSERVER2017;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;Initial Catalog=notes"
-            };
 
-            Settings.Initialize(settings);
         }
 
         [Fact]
         public void CanCreateNewUser()
         {
-            var user = userFixture.user;
+            var user = userFixture.User;
             user.Login = Guid.NewGuid().ToString();
             user.Password = Guid.NewGuid().ToString();
             user.Insert();
@@ -32,7 +27,7 @@ namespace IntegrationTests
         [Fact]
         public void CanFindUserByLogin()
         {
-            var user = userFixture.user;
+            var user = userFixture.User;
             var foundUser = User.Find(user.Login);
 
             Assert.Equal(user.Id, foundUser.Id);
@@ -43,16 +38,22 @@ namespace IntegrationTests
 
     public class UserFixture: IDisposable
     {
-        public User user { get; set; }
+        public User User { get; set; }
 
         public UserFixture()
         {
-            this.user = new User();
+            var settings = new Settings
+            {
+                ConnectionString = @"Data Source=.\MSSQLSERVER2017;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;Initial Catalog=notes"
+            };
+
+            Settings.Initialize(settings);
+            this.User = new User();
         }
 
         public void Dispose()
         {
-            this.user.Delete();
+            this.User.Delete();
         }
     }
 }
