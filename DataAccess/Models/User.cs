@@ -2,7 +2,7 @@
 {
     using System;
     using System.Data.SqlClient;
-    using Settings;
+    using Infrastructure;
 
     public class User
     {

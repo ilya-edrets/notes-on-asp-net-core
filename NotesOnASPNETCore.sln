@@ -9,11 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{37E10389-D922-4AAC-994B-D58B8082D3B4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Settings", "Settings\Settings.csproj", "{F0D1076C-446A-4F73-A34E-C132D682834A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Settings\Infrastructure.csproj", "{F0D1076C-446A-4F73-A34E-C132D682834A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCWebApp", "MVCWebApp\MVCWebApp.csproj", "{74E34ED0-81EC-4D3A-9051-796972790FD4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{F84747B7-4142-46EF-AE39-4E1ED40A4167}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		{74E34ED0-81EC-4D3A-9051-796972790FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74E34ED0-81EC-4D3A-9051-796972790FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74E34ED0-81EC-4D3A-9051-796972790FD4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F84747B7-4142-46EF-AE39-4E1ED40A4167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F84747B7-4142-46EF-AE39-4E1ED40A4167}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F84747B7-4142-46EF-AE39-4E1ED40A4167}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F84747B7-4142-46EF-AE39-4E1ED40A4167}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

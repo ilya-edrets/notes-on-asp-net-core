@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Infrastructure;
 
 namespace MVCWebApp
 {
@@ -22,12 +23,12 @@ namespace MVCWebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var settings = new Settings.Settings
+            var settings = new Settings
             {
                 ConnectionString = Configuration.GetConnectionString("DefaultConnection")
             };
 
-            Settings.Settings.Initialize(settings);
+            Settings.Initialize(settings);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

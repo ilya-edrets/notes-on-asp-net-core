@@ -2,7 +2,7 @@ namespace IntegrationTests
 {
     using System;
     using Xunit;
-    using Settings;
+    using Infrastructure;
     using DataAccess.Models;
     using System.Collections.Generic;
     using System.Linq;

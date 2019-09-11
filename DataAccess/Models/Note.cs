@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data.SqlClient;
-    using Settings;
+    using Infrastructure;
 
     public class Note
     {

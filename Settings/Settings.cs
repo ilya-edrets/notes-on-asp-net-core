@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Settings
+namespace Infrastructure
 {
     public class Settings
     {
