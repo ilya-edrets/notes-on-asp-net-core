@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Infrastructure;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace MVCWebApp
 {
@@ -31,6 +32,7 @@ namespace MVCWebApp
             Settings.Initialize(settings);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -40,12 +42,13 @@ namespace MVCWebApp
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=login}/{action=login}/{id?}");
-            });
+            app.UseAuthentication()
+               .UseMvc(routes =>
+                {
+                    routes.MapRoute(
+                        name: "default",
+                        template: "{controller=login}/{action=login}/{id?}");
+                });
         }
     }
 }
