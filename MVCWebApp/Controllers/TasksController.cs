@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using MVCWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVCWebApp.Controllers
 {
+    [Authorize]
     public class TasksController : Controller
     {
         public IActionResult Index()

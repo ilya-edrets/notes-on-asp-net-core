@@ -10,7 +10,7 @@ using MVCWebApp.Models;
 
 namespace MVCWebApp.Controllers
 {
-    public class LoginController : Controller
+    public class SecurityController : Controller
     {
         public IActionResult Login()
         {
@@ -51,8 +51,7 @@ namespace MVCWebApp.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-            return this.Login();
+            return RedirectToAction("Login");
         }
     }
 }

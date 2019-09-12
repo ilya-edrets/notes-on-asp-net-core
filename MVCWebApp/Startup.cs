@@ -32,7 +32,12 @@ namespace MVCWebApp
             Settings.Initialize(settings);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+            services
+                .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/security/login";
+                }); ;
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -44,11 +49,11 @@ namespace MVCWebApp
 
             app.UseAuthentication()
                .UseMvc(routes =>
-                {
-                    routes.MapRoute(
+               {
+                   routes.MapRoute(
                         name: "default",
-                        template: "{controller=login}/{action=login}/{id?}");
-                });
+                        template: "{controller=tasks}/{action=index}/{id?}");
+               });
         }
     }
 }
