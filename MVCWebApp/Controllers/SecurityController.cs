@@ -44,7 +44,7 @@ namespace MVCWebApp.Controllers
                 new ClaimsPrincipal(claimsIdentity),
                 authProperties);
 
-            return RedirectToAction("Index", "Tasks");
+            return RedirectToAction("Index", "Notes");
         }
 
         [HttpPost]

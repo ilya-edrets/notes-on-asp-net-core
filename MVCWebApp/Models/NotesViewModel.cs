@@ -8,6 +8,6 @@ namespace MVCWebApp.Models
 {
     public class NotesViewModel
     {
-        public Note[] Notes { get; set; }
+        public List<Note> Notes { get; set; }
     }
 }

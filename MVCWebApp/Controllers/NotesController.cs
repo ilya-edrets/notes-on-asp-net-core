@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using MVCWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using DataAccess.Models;
 
 namespace MVCWebApp.Controllers
 {
@@ -16,14 +17,32 @@ namespace MVCWebApp.Controllers
     {
         public IActionResult Index()
         {
+            var notes = Note.GetAllByUserId(this.GetCurrentUser().Id);
+
             var model = new NotesViewModel();
+            model.Notes = notes;
 
             return View(model);
         }
 
-        private string GetCurrentUserLogin()
+        public IActionResult Add(string value)
         {
-            return HttpContext.User.Claims.SingleOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+            var note = new Note(this.GetCurrentUser().Id);
+            note.Text = value;
+            note.Insert();
+
+            return this.RedirectToAction("Index");
+        }
+
+        private User GetCurrentUser()
+        {
+            var login = HttpContext.User.Claims.SingleOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+            if (login == null)
+            {
+                return null;
+            }
+
+            return DataAccess.Models.User.Find(login);
         }
     }
 }

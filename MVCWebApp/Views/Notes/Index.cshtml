@@ -3,4 +3,15 @@
     Layout = "./_Layout.cshtml";
 }
 
-<p>Notes page</p>
+<form method="post" asp-controller="Notes" asp-action="Add">
+    <input type="text" name="value">
+    <input type="submit" value="Add">
+</form>
+
+@foreach(var note in Model.Notes)
+{
+    @:
+    <div>
+        <p>@note.Text</p>
+    </div>
+}
