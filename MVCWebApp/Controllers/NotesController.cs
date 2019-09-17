@@ -22,7 +22,7 @@ namespace MVCWebApp.Controllers
             var model = new NotesViewModel();
             model.Notes = notes;
 
-            return View(model);
+            return View("Index", model);
         }
 
         public IActionResult Add(string value)
@@ -31,7 +31,7 @@ namespace MVCWebApp.Controllers
             note.Text = value;
             note.Insert();
 
-            return this.RedirectToAction("Index");
+            return this.Index();
         }
 
         private User GetCurrentUser()
