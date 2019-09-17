@@ -52,7 +52,7 @@ namespace MVCWebApp
                {
                    routes.MapRoute(
                         name: "default",
-                        template: "{controller=tasks}/{action=index}/{id?}");
+                        template: "{controller=notes}/{action=index}/{id?}");
                });
         }
     }

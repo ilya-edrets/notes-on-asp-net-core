@@ -12,11 +12,11 @@ using Microsoft.AspNetCore.Authorization;
 namespace MVCWebApp.Controllers
 {
     [Authorize]
-    public class TasksController : Controller
+    public class NotesController : Controller
     {
         public IActionResult Index()
         {
-            var model = new TasksViewModel();
+            var model = new NotesViewModel();
 
             return View(model);
         }

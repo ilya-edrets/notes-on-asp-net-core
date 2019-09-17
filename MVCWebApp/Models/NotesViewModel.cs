@@ -1,12 +1,13 @@
-﻿using System;
+﻿using DataAccess.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MVCWebApp.Models
 {
-    public class TasksViewModel
+    public class NotesViewModel
     {
-        public string User { get; set; }
+        public Note[] Notes { get; set; }
     }
 }
