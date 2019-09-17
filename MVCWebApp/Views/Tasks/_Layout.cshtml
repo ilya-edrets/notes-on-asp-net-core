@@ -1,0 +1,13 @@
+﻿@{ 
+    var currentUserLogin = Context.User.Claims.SingleOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+}
+@if (currentUserLogin != null)
+{
+    @:<h1>You are @currentUserLogin</h1>
+    <form method="post" asp-controller="Security" asp-action="Logout">
+        <input type="submit" value="Logout" />
+    </form>
+}
+
+@RenderBody()
+

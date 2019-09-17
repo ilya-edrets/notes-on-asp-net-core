@@ -16,12 +16,14 @@ namespace MVCWebApp.Controllers
     {
         public IActionResult Index()
         {
-            var model = new TasksViewModel
-            {
-                User = HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.Name).Value
-            };
+            var model = new TasksViewModel();
 
             return View(model);
+        }
+
+        private string GetCurrentUserLogin()
+        {
+            return HttpContext.User.Claims.SingleOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
         }
     }
 }
