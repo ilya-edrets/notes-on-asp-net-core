@@ -3,10 +3,13 @@
 }
 
 .note {
-    display: flex;
     padding: 10px;
     margin: 10px;
     background: aliceblue;
+}
+
+.note-buttons {
+    display: flex;
 }
 
 .session-header {

@@ -8,14 +8,17 @@
     <input type="submit" value="Add">
 </form>
 
-@foreach(var note in Model.Notes)
+@foreach (var note in Model.Notes)
 {
     @:
     <div class="note">
         <label>@note.Text</label>
-        <form method="post" asp-controller="Notes" asp-action="Delete">
-            <input type="hidden" name="id" value="@note.Id">
-            <input type="submit" value="Delete">
-        </form>
+        <div class="note-buttons">
+            <a asp-controller="Notes" asp-action="Edit" asp-route-id="@note.Id">Edit</a>
+            <form method="post" asp-controller="Notes" asp-action="Delete">
+                <input type="hidden" name="id" value="@note.Id">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
     </div>
 }

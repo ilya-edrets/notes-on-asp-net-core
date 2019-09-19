@@ -35,6 +35,28 @@ namespace MVCWebApp.Controllers
             return this.Index();
         }
 
+        [HttpGet]
+        public IActionResult Edit(Guid id)
+        {
+            var notes = Note.GetAllByUserId(this.GetCurrentUser().Id);
+
+            var model = new EditNotesViewModel();
+            model.Notes = notes;
+            model.NoteForEdit = notes.Single(x => x.Id == id);
+
+            return View("Edit", model);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Guid id, string value)
+        {
+            var note = Note.Find(id);
+            note.Text = value;
+            note.Update();
+
+            return this.Index();
+        }
+
         [HttpPost]
         public IActionResult Delete(Guid id)
         {
