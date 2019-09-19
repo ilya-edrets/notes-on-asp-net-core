@@ -25,11 +25,20 @@ namespace MVCWebApp.Controllers
             return View("Index", model);
         }
 
+        [HttpPost]
         public IActionResult Add(string value)
         {
             var note = new Note(this.GetCurrentUser().Id);
             note.Text = value;
             note.Insert();
+
+            return this.Index();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Guid id)
+        {
+            Note.Find(id).Delete();
 
             return this.Index();
         }

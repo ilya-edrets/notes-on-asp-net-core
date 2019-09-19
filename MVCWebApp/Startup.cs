@@ -47,7 +47,8 @@ namespace MVCWebApp
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseAuthentication()
+            app.UseStaticFiles()
+               .UseAuthentication()
                .UseMvc(routes =>
                {
                    routes.MapRoute(

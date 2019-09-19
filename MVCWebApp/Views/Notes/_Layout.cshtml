@@ -7,11 +7,18 @@
 }
 @if (currentUserLogin != null)
 {
-    @:<h1>You are @currentUserLogin</h1>
-    <form method="post" asp-controller="Security" asp-action="Logout">
-        <input type="submit" value="Logout" />
-    </form>
+    @:
+    <div class="session-header">
+        <h1>You are @currentUserLogin</h1>
+        <form method="post" asp-controller="Security" asp-action="Logout">
+            <input type="submit" value="Logout" />
+        </form>
+    </div>
 }
 
-@RenderBody()
+<div class="note-list">
+    @RenderBody()
+</div>
+
+    
 

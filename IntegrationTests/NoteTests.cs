@@ -31,6 +31,18 @@ namespace IntegrationTests
         }
 
         [Fact]
+        public void CanFindNoteById()
+        {
+            var expectedNote = this.noteFixture.User1Notes[0];
+
+            var foundNote = Note.Find(expectedNote.Id);
+
+            Assert.Equal(expectedNote.Id, foundNote.Id);
+            Assert.Equal(expectedNote.UserId, foundNote.UserId);
+            Assert.Equal(expectedNote.Text, foundNote.Text);
+        }
+
+        [Fact]
         public void CanUpdateNote()
         {
             var expectedText = Guid.NewGuid().ToString();

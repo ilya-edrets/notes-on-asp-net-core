@@ -1,0 +1,19 @@
+.note-list {
+    display: block;
+}
+
+.note {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    background: aliceblue;
+}
+
+.session-header {
+    display: block;
+    text-align: right;
+}
+
+h1 {
+    margin: 0;
+}

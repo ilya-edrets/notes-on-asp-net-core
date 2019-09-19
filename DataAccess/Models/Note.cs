@@ -44,6 +44,30 @@
             return result;
         }
 
+        public static Note Find(Guid id)
+        {
+            Note note = null;
+            using (SqlConnection connection = new SqlConnection(Settings.Current.ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand($"SELECT * FROM Notes WHERE Id='{id}'", connection);
+                using (SqlDataReader dataReader = command.ExecuteReader())
+                {
+                    if (dataReader.Read())
+                    {
+                        var userId = new Guid(Convert.ToString(dataReader["UserId"]));
+                        note = new Note(userId);
+                        note.Id = new Guid(Convert.ToString(dataReader["Id"]));
+                        note.Text = Convert.ToString(dataReader["Text"]);
+                    }
+                }
+
+                connection.Close();
+            }
+
+            return note;
+        }
+
         public void Insert()
         {
             using (SqlConnection connection = new SqlConnection(Settings.Current.ConnectionString))
