@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Settings\Settings.csproj" />
+    <ProjectReference Include="..\Settings\Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
