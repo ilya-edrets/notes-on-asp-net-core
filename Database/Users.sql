@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Users]
 (
 	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
-    [Login] NVARCHAR(MAX) NOT NULL, 
+    [Login] NVARCHAR(255) NOT NULL, 
     [Password] NVARCHAR(MAX) NOT NULL, 
     CONSTRAINT AK_Login UNIQUE([Login])
 )
